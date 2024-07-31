@@ -34,7 +34,7 @@ const CLNSend = (props) => {
   const [responseMessage, setResponseMessage] = useState('');
 
   const isValidAmount = (value) => value.trim() !== '' && value > 0 && value <= (appCtx.walletBalances.clnLocalBalance || 0);
-  const isValidInvoice = (value) => value.trim() !== '' && (paymentType === PaymentType.KEYSEND || (paymentType === PaymentType.INVOICE && value.startsWith('lnb')) || (paymentType === PaymentType.OFFER && value.startsWith('lno')));
+  const isValidInvoice = (value) => value.trim() !== '' && (paymentType === PaymentType.KEYSEND || (paymentType === PaymentType.INVOICE && value.toLowerCase().startsWith('lnb')) || (paymentType === PaymentType.OFFER && value.toLowerCase().startsWith('lno')));
 
   const {
     value: invoiceValue,
